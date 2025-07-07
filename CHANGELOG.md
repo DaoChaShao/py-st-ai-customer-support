@@ -9,6 +9,7 @@
 
 ### Chore
 
+- create CHANGELOG.md for version 0.1.0 ([862986d](https://github.com///commit/862986dae0c77529c2e954dbd8ff4ad7ab6cc44e))
 - add git-changelog dependency to requirements.txt ([b6fdded](https://github.com///commit/b6fdded0b798a539ca75186671a365afa975bd88))
 - add pyproject.toml for changelog configuration ([89dc9db](https://github.com///commit/89dc9db3a7f088adb8b55a36f89ff564b00077d6))
 - add requirements.txt for project dependencies ([303d30c](https://github.com///commit/303d30c4d83fac5994ecfc8633117b05a3737a5c))
