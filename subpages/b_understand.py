@@ -32,7 +32,7 @@ empty_chart: empty = empty()
 empty_similarities: empty = empty()
 
 with (sidebar):
-    subheader("Parameters")
+    subheader("OpenAI Parameters")
     options_box = ["text-embedding-3-small", "text-embedding-3-large", ]
     model: str = selectbox(
         "Embedding Model",
@@ -61,7 +61,7 @@ with (sidebar):
         empty_messages.warning("The length of OpenAI API key should be 164 characters.")
     elif aip_key and aip_key.startswith("sk-") and len(aip_key) == 164:
         empty_messages.success("The OpenAI API key is valid.")
-        if button("Run Embedding"):
+        if button("Run Embedding", type="primary", help="Click to run the embedding process"):
             with Timer("Embedding Process", precision=3) as timer:
                 empty_messages.info("Running the embedding process, please wait...")
                 with spinner("Embedding in progress..."):
