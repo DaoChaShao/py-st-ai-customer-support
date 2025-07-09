@@ -31,14 +31,16 @@ def pages_setter() -> None:
         "page": [
             "subpages/a_home.py",
             "subpages/b_understand.py",
-            "subpages/c_intent.py",
-            "subpages/d_response.py",
+            "subpages/c_intent_openai.py",
+            "subpages/d_intent_deepseek.py",
+            "subpages/e_response.py",
             "subpages/z_about.py",
         ],
         "title": [
             "Home",
             "Semantic Understanding",
-            "Intent Recognition",
+            "Intent Recognition with OpenAI",
+            "Intent Recognition with DeepSeek",
             "Personalized Response",
             "About",
         ],
@@ -46,6 +48,7 @@ def pages_setter() -> None:
             ":material/home:",
             ":material/psychology_alt:",
             ":material/arrows_input:",
+            ":material/center_focus_weak:",
             ":material/chat_bubble:",
             ":material/info:",
         ],
@@ -55,13 +58,14 @@ def pages_setter() -> None:
         "Introduction": [
             Page(page=pages["page"][0], title=pages["title"][0], icon=pages["icon"][0]),
         ],
-        "Manipulation": [
+        "Core Functions": [
             Page(page=pages["page"][1], title=pages["title"][1], icon=pages["icon"][1]),
             Page(page=pages["page"][2], title=pages["title"][2], icon=pages["icon"][2]),
             Page(page=pages["page"][3], title=pages["title"][3], icon=pages["icon"][3]),
+            Page(page=pages["page"][4], title=pages["title"][4], icon=pages["icon"][4]),
         ],
         "Information": [
-            Page(page=pages["page"][4], title=pages["title"][4], icon=pages["icon"][4]),
+            Page(page=pages["page"][5], title=pages["title"][5], icon=pages["icon"][5]),
         ],
     }
     pg = navigation(structure, position="sidebar", expanded=True)
