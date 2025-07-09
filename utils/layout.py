@@ -60,7 +60,7 @@ def pages_setter() -> None:
             Page(page=pages["page"][2], title=pages["title"][2], icon=pages["icon"][2]),
             Page(page=pages["page"][3], title=pages["title"][3], icon=pages["icon"][3]),
         ],
-        "About": [
+        "Information": [
             Page(page=pages["page"][4], title=pages["title"][4], icon=pages["icon"][4]),
         ],
     }
