@@ -5,6 +5,11 @@
 
 ### Features
 
+- update requirements.txt to include additional libraries for data processing and visualization ([0365241](https://github.com///commit/0365241cfc1d1a0457bd3c9a7cb4d0c4b9ff693c))
+- add dimensionality reduction and visualization functions using t-SNE and Plotly ([b607b7a](https://github.com///commit/b607b7a3e3be7bd259b6f1f4b2fa76cb46463051))
+- implement semantic understanding interface with OpenAI API integration ([3aa8a07](https://github.com///commit/3aa8a072c2e4d8c9ab249c7bcd13b6fc0c43f705))
+- add Timer class to measure elapsed time ([416ef2b](https://github.com///commit/416ef2b53dfc98c61ccfcedd3bb0d35c18a9166c))
+- remove main function and entry point from b_understand.py ([dd85d51](https://github.com///commit/dd85d517c2935059d6033dbb1a814c2e1ce3e01b))
 - add z_about.py with main function template ([d0a2f37](https://github.com///commit/d0a2f37f5ecab420468a28554cb5cf043727a0ee))
 - add Streamlit dependency to requirements.txt ([cb9282a](https://github.com///commit/cb9282a49a755f067aa65f3f79e7301fcf86dfc4))
 - implement main function to configure Streamlit application ([549d4d1](https://github.com///commit/549d4d1b335df2c19c93424752591859947d6406))
@@ -18,6 +23,7 @@
 
 ### Chore
 
+- update CHANGELOG.md for version 0.1.0 ([d45fbb2](https://github.com///commit/d45fbb232e73aa705442afd000bb60b97dc128ac))
 - create CHANGELOG.md for version 0.1.0 ([862986d](https://github.com///commit/862986dae0c77529c2e954dbd8ff4ad7ab6cc44e))
 - add git-changelog dependency to requirements.txt ([b6fdded](https://github.com///commit/b6fdded0b798a539ca75186671a365afa975bd88))
 - add pyproject.toml for changelog configuration ([89dc9db](https://github.com///commit/89dc9db3a7f088adb8b55a36f89ff564b00077d6))
@@ -25,6 +31,7 @@
 
 ### Docs
 
+- update changelog instructions in README.md ([eaf4741](https://github.com///commit/eaf4741e34bec9a757d3373d5c24965fa9ed7836))
 - update CHANGELOG.md for version 0.1.0 ([398d8a9](https://github.com///commit/398d8a95f1e5e16a7b6376151c5b2462929c5c06))
 - update README.md with additional instructions for changelog creation ([46f778a](https://github.com///commit/46f778a337edd335f4a5481a26a6780f1c77c4fb))
 - update README.md with changelog and application usage instructions ([fdd8b45](https://github.com///commit/fdd8b45e48ab4baea720f0b0d72aafd32eadd6a1))
