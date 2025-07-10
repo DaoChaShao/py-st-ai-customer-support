@@ -41,7 +41,7 @@ def pages_setter() -> None:
             "Semantic Understanding",
             "Intent Recognition with OpenAI",
             "Intent Recognition with DeepSeek",
-            "Personalized Response",
+            "Personalised Response",
             "About",
         ],
         "icon": [
