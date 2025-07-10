@@ -15,12 +15,13 @@ from time import perf_counter
 
 
 class Timer(object):
-    """A function for timing code blocks using a context manager.
-    :param description: the description of the timer
-    :param precision: the number of decimal places to round the elapsed time
-    """
+    """ timing code blocks using a context manager """
 
     def __init__(self, description: str = None, precision: int = 5):
+        """ Initialise the Timer class
+        :param description: the description of a timer
+        :param precision: the number of decimal places to round the elapsed time
+        """
         self._description: str = description
         self._precision: int = precision
         self._start: float = 0.0
@@ -28,6 +29,7 @@ class Timer(object):
         self._elapsed: float = 0.0
 
     def __enter__(self):
+        """ Start the timer """
         self._start = perf_counter()
         print()
         print("-" * 50)
@@ -35,10 +37,12 @@ class Timer(object):
         return self
 
     def __exit__(self, *args):
+        """ Stop the timer and calculate the elapsed time """
         self._end = perf_counter()
         self._elapsed = self._end - self._start
 
     def __repr__(self):
+        """ Return a string representation of the timer """
         if self._elapsed != 0.0:
             print("-" * 50)
             return f"{self._description} took {self._elapsed:.{self._precision}f} seconds."
@@ -46,7 +50,7 @@ class Timer(object):
 
 
 def dimensions_reductor_with_tsne(data, target_dimensions: int = 3, random_seed: int = 9527, perplexity: int = 3):
-    """A function to reduce the dimensions of the data using t-SNE.
+    """ A function to reduce the dimensions of the data using t-SNE.
     :param data: The input data to be reduced, can be a list or a numpy array.
     :param target_dimensions: The number of dimensions to reduce the data to (default is 3).
     :param random_seed: The random seed for reproducibility (default is 9527).
@@ -72,7 +76,7 @@ def dimensions_reductor_with_tsne(data, target_dimensions: int = 3, random_seed:
 
 
 def plotly_scatter_3d(data_3d, contents: list[str], category: str = "t-SNE"):
-    """A function to plot the reduced data in 3D using Plotly.
+    """ A function to plot the reduced data in 3D using Plotly.
     :param data_3d: numpy.ndarray: The reduced data as a numpy array.
     :param contents: list[str]: The contents of the data points.
     :param category: str: The type of visualisation (default is "t-SNE").
@@ -100,7 +104,7 @@ def plotly_scatter_3d(data_3d, contents: list[str], category: str = "t-SNE"):
 
 
 def similarities_getter(embeddings, sentences, target_index: int = 0, top_n: int = 3) -> list[tuple[str, float]]:
-    """Calculate cosine similarities between a target sentence and a list of sentences.
+    """ Calculate cosine similarities between a target sentence and a list of sentences.
     :param embeddings: list: The list of sentence embeddings.
     :param sentences: list[str]: The list of sentences corresponding to the embeddings.
     :param target_index: int: The index of the target sentence in the embeddings list (default is 0).
@@ -124,10 +128,11 @@ def similarities_getter(embeddings, sentences, target_index: int = 0, top_n: int
 
 
 def intent_recognizer(question: str, categories: dict[str, list], content: str) -> str:
-    """Analyse and classify the intent of the questions customers ask.
+    """ Analyse and classify the intent of the questions customers ask.
     :param question: str: The question text.
     :param categories: dict[str, list]: A dictionary where keys are intent categories and values are lists of example questions.
     :param content: str: The content of the question text.
+    :return: str: The intent recognition result.
     """
     context: str = (f"{content}"
                     f"You are an advanced assistant that classifies user questions into intent categories.")
@@ -162,6 +167,7 @@ def personalised_response(gender: str, age: int, status: str, products: list[str
     :param products: str: The products the person is interested in.
     :param content: str: The content of the OpenAI system content.
     :param question: str: The question the person has.
+    :return: str: The personalised response prompt.
     """
     persona = (
         f"There is a {gender} customer."
