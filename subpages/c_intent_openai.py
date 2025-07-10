@@ -42,19 +42,19 @@ with sidebar:
         "OpenAi Model", ["gpt-3.5-turbo"], index=0, disabled=True,
         help="Select the OpenAI model to use.",
     )
-    aip_key: str = text_input(
+    api_key: str = text_input(
         "OpenAI API Key",
         max_chars=164, type="password",
         help="OpenAI API key for authentication",
     )
-    caption(f"The length of API key you entered is {len(aip_key)} characters.")
-    if not aip_key:
+    caption(f"The length of API key you entered is {len(api_key)} characters.")
+    if not api_key:
         empty_messages.error("Please enter your OpenAI API key.")
-    elif aip_key and not aip_key.startswith("sk-"):
+    elif api_key and not api_key.startswith("sk-"):
         empty_messages.error("Please enter a **VALID** OpenAI API key.")
-    elif aip_key and aip_key.startswith("sk-") and len(aip_key) != 164:
+    elif api_key and api_key.startswith("sk-") and len(api_key) != 164:
         empty_messages.warning("The length of OpenAI API key should be 164 characters.")
-    elif aip_key and aip_key.startswith("sk-") and len(aip_key) == 164:
+    elif api_key and api_key.startswith("sk-") and len(api_key) == 164:
         empty_messages.success("The OpenAI API key is valid.")
         if question == "无":
             empty_messages.error("Please select a question from the list.")
@@ -69,7 +69,7 @@ with sidebar:
                 with Timer("Classify Intent", precision=3) as timer:
                     with spinner(text="Classifying intent of the selected question."):
                         prompt: str = intent_recognizer(question, INTENTS_CATEGORIES, content)
-                        opener = OpenAICompleter(api_key=aip_key, temperature=temperature, top_p=Top_p)
+                        opener = OpenAICompleter(api_key=api_key, temperature=temperature, top_p=Top_p)
                         response: str = opener.client(content=content, prompt=prompt, model=model)
                         empty_responses.data_editor(
                             DataFrame([response], columns=["Intent Classification", ]),
