@@ -5,6 +5,9 @@
 
 ### Features
 
+- add deepseek_api_model function for language model integration ([2a5a962](https://github.com///commit/2a5a962f54fdb2b0e4765b024997ecc04044fabb))
+- add personalised_response function to generate tailored customer replies ([16456dd](https://github.com///commit/16456ddee2eedf14763104d66704134857ecee8d))
+- implement personalized response interface with OpenAI API integration ([f1d92e3](https://github.com///commit/f1d92e3437799579135c1d2e38ba577351ab3004))
 - implement intent classification interface with OpenAI integration ([82213b1](https://github.com///commit/82213b147bf46503a57066c593479772f8c77e0e))
 - add data.py with predefined customer questions and intent categories ([ce074be](https://github.com///commit/ce074becc322340196ef5854ffa3f64bfa30a8f0))
 - add intent recognizer function to classify customer questions ([67b64bc](https://github.com///commit/67b64bc2e8d291daafdcb0dfaa8a93af168b93b0))
@@ -28,6 +31,9 @@
 
 ### Bug Fixes
 
+- correct spelling of "Personalized" to "Personalised" in layout.py ([3ae399b](https://github.com///commit/3ae399b69fd4901b0280e7bf6aa6afb4ff372aba))
+- update typo in the list of personalised questions. ([5375216](https://github.com///commit/5375216249fd0b331ea55c61bda6722c7b2ac4c0))
+- rename variable for OpenAI API key and update validation checks ([d509133](https://github.com///commit/d509133a1b308451c97d35ecff9ea0093f89e661))
 - update button properties in b_understand.py for improved UI interaction ([e6cfcf0](https://github.com///commit/e6cfcf0892fe984c5a833a1f95b3250ae08e8546))
 - update layout.py to reflect renamed files and adjust section titles ([2d09785](https://github.com///commit/2d09785cd4bf4597c55364af3b6272e32a93758b))
 - rename d_response.py to e_response.py for consistency ([547a49a](https://github.com///commit/547a49ab14c9b9de19bb65ae7b8a44eebbf98a5e))
@@ -38,7 +44,7 @@
 
 ### Chore
 
-- update CHANGELOG.md for version 0.1.0 ([d45fbb2](https://github.com///commit/d45fbb232e73aa705442afd000bb60b97dc128ac))
+- update CHANGELOG.md for version 0.1.0 ([3e089ab](https://github.com///commit/3e089ab03146b9b3e4c8d91ba9147a5f9a48934a))
 - create CHANGELOG.md for version 0.1.0 ([862986d](https://github.com///commit/862986dae0c77529c2e954dbd8ff4ad7ab6cc44e))
 - add git-changelog dependency to requirements.txt ([b6fdded](https://github.com///commit/b6fdded0b798a539ca75186671a365afa975bd88))
 - add pyproject.toml for changelog configuration ([89dc9db](https://github.com///commit/89dc9db3a7f088adb8b55a36f89ff564b00077d6))
