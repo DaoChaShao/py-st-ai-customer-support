@@ -5,6 +5,9 @@
 
 ### Features
 
+- enhance application information display with detailed module descriptions ([e999079](https://github.com///commit/e9990799a5b8089a28c724b6eac1a44a9b3f7eac))
+- add DeepSeekCompleter class and update client methods for improved API integration ([967b1a4](https://github.com///commit/967b1a407c6975f2f4e9670cec04fedbc7bd6e68))
+- implement intent classification interface with DeepSeek integration ([06d62ed](https://github.com///commit/06d62ed782095382b10eb505f33a3848f10fa875))
 - add deepseek_api_model function for language model integration ([2a5a962](https://github.com///commit/2a5a962f54fdb2b0e4765b024997ecc04044fabb))
 - add personalised_response function to generate tailored customer replies ([16456dd](https://github.com///commit/16456ddee2eedf14763104d66704134857ecee8d))
 - implement personalized response interface with OpenAI API integration ([f1d92e3](https://github.com///commit/f1d92e3437799579135c1d2e38ba577351ab3004))
@@ -44,6 +47,8 @@
 
 ### Chore
 
+- add missing newline in b_understand.py for code formatting ([6992d8b](https://github.com///commit/6992d8b0fa4c5dc34cfc771038989f2da931eae5))
+- update CHANGELOG.md with recent feature additions and bug fixes ([f908102](https://github.com///commit/f9081021855d7a48e365b3edaa0c2e7aa99d3396))
 - update CHANGELOG.md for version 0.1.0 ([3e089ab](https://github.com///commit/3e089ab03146b9b3e4c8d91ba9147a5f9a48934a))
 - create CHANGELOG.md for version 0.1.0 ([862986d](https://github.com///commit/862986dae0c77529c2e954dbd8ff4ad7ab6cc44e))
 - add git-changelog dependency to requirements.txt ([b6fdded](https://github.com///commit/b6fdded0b798a539ca75186671a365afa975bd88))
