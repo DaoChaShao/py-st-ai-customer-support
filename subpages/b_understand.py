@@ -6,16 +6,16 @@
 # @File     :   b_understand.py
 # @Desc     :   
 
+from data import CUSTOMER_QUESTION, CUSTOMER_QUESTIONS
 from pandas import DataFrame
 from streamlit import (title, sidebar, subheader, caption, text_input,
                        selectbox, empty, button, spinner,
                        data_editor, plotly_chart, write, )
 from utils.models import OpenAIEmbedder
-from utils.helper import (CUSTOMER_QUESTION, CUSTOMER_QUESTIONS,
-                          Timer,
+from utils.helper import (Timer,
                           dimensions_reductor_with_tsne,
                           plotly_scatter_3d,
-                          similarities_getter)
+                          similarities_getter, )
 
 title("Semantic Understanding")
 empty_messages: empty = empty()
@@ -61,7 +61,7 @@ with (sidebar):
         empty_messages.warning("The length of OpenAI API key should be 164 characters.")
     elif aip_key and aip_key.startswith("sk-") and len(aip_key) == 164:
         empty_messages.success("The OpenAI API key is valid.")
-        if button("Run Embedding", type="primary", help="Click to run the embedding process"):
+        if button("Run Embedding", type="primary", use_container_width=True, help="Click to run the embedding process"):
             with Timer("Embedding Process", precision=3) as timer:
                 empty_messages.info("Running the embedding process, please wait...")
                 with spinner("Embedding in progress..."):
