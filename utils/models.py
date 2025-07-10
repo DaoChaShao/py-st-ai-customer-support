@@ -10,16 +10,15 @@ from openai import OpenAI
 
 
 class OpenAIEmbedder(object):
-    """OpenAI Embeddings API Wrapper"""
+    """ OpenAI Embeddings API Wrapper """
 
     def __init__(self, api_key: str) -> None:
         """ Initialise the OpenAI Embeddings API
-
         :param api_key: str: The API key for the OpenAI API
         """
         self._api_key = api_key
 
-    def client(self, prompt: list, model: str, dimensions: int = 1536) -> list:
+    def client(self, prompt: list, model: str = "text-embedding-3-small", dimensions: int = 1536) -> list:
         """ Initialise the OpenAI Embeddings API
                 - dimensions: 256、512、1024、1536
 
@@ -54,7 +53,7 @@ class OpenAICompleter(object):
         self._temperature = temperature
         self._top_p = top_p
 
-    def client(self, content: str, prompt: str, model: str) -> str:
+    def client(self, content: str, prompt: str, model: str = "gpt-3.5-turbo") -> str:
         """ Initialise the OpenAI Completion API
         :param content: str: The input text to be completed
         :param prompt: str: The prompt to complete the input text
@@ -77,19 +76,35 @@ class OpenAICompleter(object):
 
         return completion.choices[0].message.content
 
-def deepseek_api_model(params: dict, prompt: str) -> str:
-    """ Load Language Model """
-    api_key: str = params["api_key"]
-    client = OpenAI(api_key=api_key, base_url="https://api.deepseek.com")
-    messages = [
-        {"role": "system", "content": params["sys_content"]},
-        {"role": "user", "content": prompt},
-    ]
 
-    response = client.chat.completions.create(
-        model=params["model"],
-        messages=messages,
-        temperature=params["temperature"],
-        stream=False)
+class DeepSeekCompleter(object):
+    """ DeepSeek Completer API Wrapper """
 
-    return response.choices[0].message.content
+    def __init__(self, api_key: str, temperature: float = 0.7) -> None:
+        """ Initialise the DeepSeek Completer API
+        :param api_key: str: The API key for the DeepSeek API
+        :param temperature: float: The temperature for the completion
+        """
+        self._api_key = api_key
+        self._temperature = temperature
+
+    def client(self, content: str, prompt: str, model: str = "deepseek-chat") -> str:
+        """ Initialise the DeepSeek Completion API
+        :param content: str: The input text to be completed
+        :param prompt: str: The prompt to complete the input text
+        :param model: str: The model to use for the completion, default is "deepseek-chat-3.5"
+        :return: str: The completed text
+        """
+        client = OpenAI(api_key=self._api_key, base_url="https://api.deepseek.com")
+        messages = [
+            {"role": "system", "content": content},
+            {"role": "user", "content": prompt},
+        ]
+
+        response = client.chat.completions.create(
+            model=model,
+            messages=messages,
+            temperature=self._temperature,
+            stream=False)
+
+        return response.choices[0].message.content
