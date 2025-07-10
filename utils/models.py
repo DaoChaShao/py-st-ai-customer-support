@@ -76,3 +76,20 @@ class OpenAICompleter(object):
         )
 
         return completion.choices[0].message.content
+
+def deepseek_api_model(params: dict, prompt: str) -> str:
+    """ Load Language Model """
+    api_key: str = params["api_key"]
+    client = OpenAI(api_key=api_key, base_url="https://api.deepseek.com")
+    messages = [
+        {"role": "system", "content": params["sys_content"]},
+        {"role": "user", "content": prompt},
+    ]
+
+    response = client.chat.completions.create(
+        model=params["model"],
+        messages=messages,
+        temperature=params["temperature"],
+        stream=False)
+
+    return response.choices[0].message.content
