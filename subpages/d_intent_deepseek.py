@@ -6,10 +6,71 @@
 # @File     :   d_intent_deepseek.py
 # @Desc     :   
 
-def main() -> None:
-    """ Main Function """
-    pass
+from data import INTENTS_CATEGORIES, INTENTS_QUESTIONS
+from pandas import DataFrame
+from streamlit import (write, title, data_editor, selectbox, button,
+                       spinner, empty, sidebar, subheader, slider,
+                       text_input, caption)
 
+from utils.helper import intent_recognizer, Timer
+from utils.models import DeepSeekCompleter
 
-if __name__ == "__main__":
-    main()
+title("Intent Recognition with DeepSeek")
+content: str = "You are a professional and advanced intent classifier!"
+
+empty_messages: empty = empty()
+empty_questions: empty = empty()
+data_editor(DataFrame(INTENTS_CATEGORIES), hide_index=True, disabled=True, use_container_width=True)
+question: str = selectbox(
+    "Select a question", ["无"] + INTENTS_QUESTIONS, index=0,
+    help="Select a question in the list of intent categories.",
+)
+caption("After selecting a question, click the button below to classify its intent using OpenAI.")
+empty_responses: empty = empty()
+
+with sidebar:
+    subheader("DeepSeek Parameters")
+    temperature: float = slider(
+        "Temperature", min_value=0.0, max_value=1.0, value=0.7, step=0.1, disabled=True,
+        help="Controls the randomness of the model's output. Lower values make it more deterministic.",
+    )
+    model: str = selectbox(
+        "DeepSeek Model", ["deepseek-chat"], index=0, disabled=True,
+        help="Select the DeepSeek model to use.",
+    )
+    api_key: str = text_input(
+        "DeepSeek API Key",
+        max_chars=35, type="password",
+        help="DeepSeek API key for authentication",
+    )
+    caption(f"The length of API key you entered is {len(api_key)} characters.")
+    if not api_key:
+        empty_messages.error("Please enter your DeepSeek API key.")
+    elif api_key and not api_key.startswith("sk-"):
+        empty_messages.error("Please enter a **VALID** DeepSeek API key.")
+    elif api_key and api_key.startswith("sk-") and len(api_key) != 35:
+        empty_messages.warning("The length of DeepSeek API key should be 164 characters.")
+    elif api_key and api_key.startswith("sk-") and len(api_key) == 35:
+        empty_messages.success("The DeepSeek API key is valid.")
+        if question == "无":
+            empty_messages.error("Please select a question from the list.")
+        else:
+            empty_messages.success("Now you can click the button to classify your intent using DeepSeek.")
+            if button(
+                    "Classify Intent", type="primary",
+                    use_container_width=True,
+                    help="Click to classify the intent of the selected question."
+            ):
+                empty_messages.info("The intent of the question is classifying, please wait...")
+                with Timer("Classify Intent", precision=3) as timer:
+                    with spinner(text="Classifying intent of the selected question."):
+                        prompt: str = intent_recognizer(question, INTENTS_CATEGORIES, content)
+
+                        seeker = DeepSeekCompleter(api_key=api_key, temperature=temperature)
+                        response: str = seeker.client(content=content, prompt=prompt, model=model)
+                        empty_responses.data_editor(
+                            DataFrame([response], columns=["Intent Classification", ]),
+                            hide_index=True, disabled=True,
+                            use_container_width=True,
+                        )
+                empty_messages.success(f"{timer}")
