@@ -144,8 +144,53 @@ def intent_recognizer(question: str, categories: dict[str, list], content: str) 
 
     constraints: str = f"Your evaluation should be clear, accurate and positive."
 
+    prompt: str = (
+        f"{context}"
+        f"{few_shots}"
+        f"{instruction}"
+        f"{constraints}"
+    )
+
+    return prompt
+
+
+def personalised_response(gender: str, age: int, status: str, products: list[str], content: str, question: str) -> str:
+    """A function to generate a personalised response based on user input.
+    :param gender: str: The gender of the person.
+    :param age: int: The age of the person.
+    :param status: str: The status of the person.
+    :param products: str: The products the person is interested in.
+    :param content: str: The content of the OpenAI system content.
+    :param question: str: The question the person has.
+    """
+    persona = (
+        f"There is a {gender} customer."
+        f"If there is a female, call him with 女士."
+        f"If there is a male, call him with 男士."
+        f"And, his/her age is {age}."
+        f"And, his/her status is {status}."
+        f"He/She brought {', '.join(products)}"
+    )
+
+    context: str = (
+        f"{content}"
+        f"Please generate a natural, warm, and professional customer service reply based on the following information:"
+    )
+
+    instruction: str = (
+        f"Now, please give a suitable and proper response to the customer's question — {question} based on {persona}."
+    )
+
+    constraints: str = (
+        f"Your response should be professional and positive."
+        f"And, you should use first-person to speak to the customer."
+        f"And, you should respect the customer's identity, and display his/her status."
+        f"And, you should limit the response to within 80 words."
+        f"And, you should use Chinese, simple and clear language."
+        f"Do not include any closing words, such as '祝好' or '您的名字'. Only respond with the main message body."
+    )
+
     prompt: str = (f"{context}"
-                   f"{few_shots}"
                    f"{instruction}"
                    f"{constraints}")
 
