@@ -45,24 +45,6 @@ class Timer(object):
         return f"{self._description} has NOT been started."
 
 
-CUSTOMER_QUESTION: list[str] = [
-    "这个有官方授权吗？",  # “这件衣服有现货吗？”
-]
-
-CUSTOMER_QUESTIONS: list = [
-    "什么时候能发货？",
-    "快递单号是多少？",
-    "可以退货吗？",
-    "我怎么申请退款？",
-    "有没有优惠券？",
-    "尺码怎么选？",
-    "这件衣服有现货吗？",
-    "这个商品是正品吗？",
-    "可以发顺丰吗？",
-    "我付完款了，怎么还没发货？"
-]
-
-
 def dimensions_reductor_with_tsne(data, target_dimensions: int = 3, random_seed: int = 9527, perplexity: int = 3):
     """A function to reduce the dimensions of the data using t-SNE.
     :param data: The input data to be reduced, can be a list or a numpy array.
@@ -139,3 +121,32 @@ def similarities_getter(embeddings, sentences, target_index: int = 0, top_n: int
     top_n_indices = similarities.argsort()[::-1][:top_n]
 
     return [(sentences[i], similarities[i]) for i in top_n_indices]
+
+
+def intent_recognizer(question: str, categories: dict[str, list], content: str) -> str:
+    """Analyse and classify the intent of the questions customers ask.
+    :param question: str: The question text.
+    :param categories: dict[str, list]: A dictionary where keys are intent categories and values are lists of example questions.
+    :param content: str: The content of the question text.
+    """
+    context: str = (f"{content}"
+                    f"You are an advanced assistant that classifies user questions into intent categories.")
+
+    few_shots: str = ""
+    for intent, examples in categories.items():
+        few_shots += f"\n### Category: {intent}\n"
+        for example in examples:
+            few_shots += f"- {example}\n"
+
+    instruction: str = (f"Now, please classify the following customer question into ONE of the above categories"
+                        f"{question}"
+                        f"Respond only with the category name.")
+
+    constraints: str = f"Your evaluation should be clear, accurate and positive."
+
+    prompt: str = (f"{context}"
+                   f"{few_shots}"
+                   f"{instruction}"
+                   f"{constraints}")
+
+    return prompt
