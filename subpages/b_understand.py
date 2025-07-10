@@ -11,6 +11,7 @@ from pandas import DataFrame
 from streamlit import (title, sidebar, subheader, caption, text_input,
                        selectbox, empty, button, spinner,
                        data_editor, plotly_chart, write, )
+
 from utils.models import OpenAIEmbedder
 from utils.helper import (Timer,
                           dimensions_reductor_with_tsne,
