@@ -47,8 +47,8 @@
 
 ### Chore
 
+- update CHANGELOG.md with recent feature additions and bug fixes ([0dc955d](https://github.com///commit/0dc955d594700a904b5af2441fd1a8ff072f1859))
 - add missing newline in b_understand.py for code formatting ([6992d8b](https://github.com///commit/6992d8b0fa4c5dc34cfc771038989f2da931eae5))
-- update CHANGELOG.md with recent feature additions and bug fixes ([f908102](https://github.com///commit/f9081021855d7a48e365b3edaa0c2e7aa99d3396))
 - update CHANGELOG.md for version 0.1.0 ([3e089ab](https://github.com///commit/3e089ab03146b9b3e4c8d91ba9147a5f9a48934a))
 - create CHANGELOG.md for version 0.1.0 ([862986d](https://github.com///commit/862986dae0c77529c2e954dbd8ff4ad7ab6cc44e))
 - add git-changelog dependency to requirements.txt ([b6fdded](https://github.com///commit/b6fdded0b798a539ca75186671a365afa975bd88))
@@ -57,6 +57,7 @@
 
 ### Docs
 
+- update Streamlit link in README.md for correct application access ([60eaa2f](https://github.com///commit/60eaa2f69deed0f429f14173047e166783dafe05))
 - update CHANGELOG.md for version 0.1.0 ([131f5dc](https://github.com///commit/131f5dc7cdaf070409f55954179bc48357e06cbe))
 - update changelog instructions in README.md ([eaf4741](https://github.com///commit/eaf4741e34bec9a757d3373d5c24965fa9ed7836))
 - update README.md with additional instructions for changelog creation ([46f778a](https://github.com///commit/46f778a337edd335f4a5481a26a6780f1c77c4fb))
