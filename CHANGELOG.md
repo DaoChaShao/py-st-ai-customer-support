@@ -1,7 +1,7 @@
 <!-- insertion marker -->
 <a name="0.1.0"></a>
 
-## [0.1.0](https://github.com///compare/814c52306db7adf9e1f48021419593068b2de6af...0.1.0) (2025-07-10)
+## [0.1.0](https://github.com///compare/814c52306db7adf9e1f48021419593068b2de6af...0.1.0) (2025-07-13)
 
 ### Features
 
@@ -34,6 +34,7 @@
 
 ### Bug Fixes
 
+- remove redundant plotly chart rendering in b_understand.py ([7bae811](https://github.com///commit/7bae811b3cf0a79b30b5c1c7b771c2a61f6d9052))
 - correct spelling of "Personalized" to "Personalised" in layout.py ([3ae399b](https://github.com///commit/3ae399b69fd4901b0280e7bf6aa6afb4ff372aba))
 - update typo in the list of personalised questions. ([5375216](https://github.com///commit/5375216249fd0b331ea55c61bda6722c7b2ac4c0))
 - rename variable for OpenAI API key and update validation checks ([d509133](https://github.com///commit/d509133a1b308451c97d35ecff9ea0093f89e661))
@@ -47,6 +48,7 @@
 
 ### Chore
 
+- remove duplicate entry in CHANGELOG.md for clarity ([71dfe5f](https://github.com///commit/71dfe5ffac2544ff7881064ef532248a9d663e72))
 - update CHANGELOG.md with recent feature additions and bug fixes ([0dc955d](https://github.com///commit/0dc955d594700a904b5af2441fd1a8ff072f1859))
 - add missing newline in b_understand.py for code formatting ([6992d8b](https://github.com///commit/6992d8b0fa4c5dc34cfc771038989f2da931eae5))
 - update CHANGELOG.md for version 0.1.0 ([3e089ab](https://github.com///commit/3e089ab03146b9b3e4c8d91ba9147a5f9a48934a))
