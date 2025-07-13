@@ -7,7 +7,7 @@ This application is designed to help vocational students understand classic tech
 2. Install the required dependencies with the command `pip install -r requirements.txt`.
 3. Run the application with the command `streamlit run main.py`.
 4. You can also try the application by visiting the following
-   link: [![Static Badge](https://img.shields.io/badge/Open%20in%20Streamlit-Daochashao-red?style=for-the-badge&logo=streamlit&labelColor=white)](https://ai-customer-support.streamlit.app/)
+   link: [![Static Badge](https://img.shields.io/badge/Open%20in%20Streamlit-Daochashao-red?style=for-the-badge&logo=streamlit&labelColor=white)](https://aics.streamlit.app/)
 
 **LICENCE**  
 This application is licensed under the [BSD-3-Clause License](LICENSE). You can click the link to read the licence.
