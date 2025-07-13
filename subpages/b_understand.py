@@ -75,7 +75,6 @@ with (sidebar):
 
                         fig = plotly_scatter_3d(reduced_data, CUSTOMER_DATA)
                         empty_chart.plotly_chart(fig, use_container_width=True)
-                        plotly_chart(fig, use_container_width=True)
 
                         top_similarities = similarities_getter(embeddings, CUSTOMER_DATA)
                         empty_similarities.data_editor(
