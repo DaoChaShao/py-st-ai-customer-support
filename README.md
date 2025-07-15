@@ -1,6 +1,15 @@
 **INTRODUCTION**  
 This application is designed to help vocational students understand classic technical concepts in AI customer support.
 
+**PRIVACY NOTIFICATION**  
+This app requires an OpenAI or DeepSeek API key to function.
+
+- Your API key is **NEVER STORED**, logged, or sent to any third-party server.
+- All processing happens **within the current session** of the app.
+- The app is fully open-source, and you can review the [code here](./) to verify.
+
+Your privacy and data security are important.
+
 **INSTRUCTIONS FOR USING THE APPLICATION**
 
 1. Clone the repository to your local machine.
