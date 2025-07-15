@@ -1,7 +1,7 @@
 <!-- insertion marker -->
 <a name="0.1.0"></a>
 
-## [0.1.0](https://github.com///compare/814c52306db7adf9e1f48021419593068b2de6af...0.1.0) (2025-07-13)
+## [0.1.0](https://github.com///compare/814c52306db7adf9e1f48021419593068b2de6af...0.1.0) (2025-07-15)
 
 ### Features
 
@@ -34,7 +34,7 @@
 
 ### Bug Fixes
 
-- remove redundant plotly chart rendering in b_understand.py ([7bae811](https://github.com///commit/7bae811b3cf0a79b30b5c1c7b771c2a61f6d9052))
+- remove redundant plotly chart rendering in b_understand.py ([37f5f59](https://github.com///commit/37f5f594fa30df844dfd08f0c98dee2e49808aad))
 - correct spelling of "Personalized" to "Personalised" in layout.py ([3ae399b](https://github.com///commit/3ae399b69fd4901b0280e7bf6aa6afb4ff372aba))
 - update typo in the list of personalised questions. ([5375216](https://github.com///commit/5375216249fd0b331ea55c61bda6722c7b2ac4c0))
 - rename variable for OpenAI API key and update validation checks ([d509133](https://github.com///commit/d509133a1b308451c97d35ecff9ea0093f89e661))
@@ -59,6 +59,7 @@
 
 ### Docs
 
+- add privacy notification and API key usage details to README.md ([c1187fb](https://github.com///commit/c1187fbb5b868f1c5a8c55c8a8e296692dff6cf1))
 - update Streamlit link in README.md for correct application access ([60eaa2f](https://github.com///commit/60eaa2f69deed0f429f14173047e166783dafe05))
 - update CHANGELOG.md for version 0.1.0 ([131f5dc](https://github.com///commit/131f5dc7cdaf070409f55954179bc48357e06cbe))
 - update changelog instructions in README.md ([eaf4741](https://github.com///commit/eaf4741e34bec9a757d3373d5c24965fa9ed7836))
